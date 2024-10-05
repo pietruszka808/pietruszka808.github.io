@@ -53,7 +53,7 @@ def main():
     clock = 0
     score = 0
     banknotes = []
-    background = pygame.image.load("tło.png")
+    background = pygame.image.load("tlo.png")
     score_image = pygame.font.Font.render(pygame.font.SysFont("arial", 48),"Wynik", True, (10, 10, 10))
     while run:
         clock += pygame.time.Clock().tick(60) / 1000  # maksymalnie 60 fps
