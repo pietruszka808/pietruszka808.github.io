@@ -13,3 +13,21 @@ color_light_gray = "#646464"
 
 window = tkinter.Tk()
 window.title("Tic Tac Toe")
+window.resizable(False, False)
+
+frame = tkinter.Frame(window)
+label = tkinter.Label(frame,
+                      text=curr_player+"'s turn", 
+                      font=("Consolas", 20), 
+                      background=color_gray,
+                      foreground="white")
+
+label.grid(row=0, column=0)
+
+for row in range(3):
+    for column in range(3):
+        board[row][column] = tkinter.Button(frame, text="",)
+
+frame.pack()
+
+window.mainloop()
