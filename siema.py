@@ -1,5 +1,7 @@
 import tkinter
 
+def set_tile(row, column):
+    pass
 
 playerX = "X"
 playerO = "O"
@@ -22,11 +24,14 @@ label = tkinter.Label(frame,
                       background=color_gray,
                       foreground="white")
 
-label.grid(row=0, column=0)
+label.grid(row=0, column=0, columnspan=3, sticky="we")
 
 for row in range(3):
     for column in range(3):
-        board[row][column] = tkinter.Button(frame, text="",)
+        board[row][column] = tkinter.Button(frame, text="", font=("Consolas", 50, "bold"),
+                                            background=color_gray, foreground=color_blue, width=4, height=1,
+                                            command=lambda row=row, column=column: set_tile(row, column))
+        board[row][column].grid(row=row+1, column=column)
 
 frame.pack()
 
