@@ -3,6 +3,9 @@ import tkinter
 def set_tile(row, column):
     global curr_player
     
+    if board[row][column]["text"] != "":
+        return
+
     board[row][column]["text"] = curr_player
 
     if curr_player == playerO:
@@ -11,6 +14,24 @@ def set_tile(row, column):
         curr_player = playerO
 
     label["text"] = curr_player+"'s turn"
+
+
+    check_winter()
+
+def check_winter():
+    global turns, game_over
+    turns += 1
+
+
+    for row in range(3):
+        if (board[row][0]["text"] == board[row][1]["text"] == board[row][2]["text"]
+            and board[row][0]['text'] != ""):
+            label.config(text=board[row][0]["text"]+" is the winnter!", foreground=color_yellow)
+            for column in range(3):
+                board[row][column].config(foreground=color_yellow, background=color_light_gray)
+            game_over = True
+            return
+
 
 def new_game():
     pass
@@ -24,6 +45,9 @@ color_blue = "#4584b6"
 color_yellow = "#ffde57"
 color_gray = "#343434"
 color_light_gray = "#646464"
+
+turns = 0
+game_over = False
 
 window = tkinter.Tk()
 window.title("Tic Tac Toe")
