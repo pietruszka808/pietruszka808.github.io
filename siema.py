@@ -1,7 +1,16 @@
 import tkinter
 
 def set_tile(row, column):
-    pass
+    global curr_player
+    
+    board[row][column]["text"] = curr_player
+
+    if curr_player == playerO:
+        curr_player = playerX
+    else:
+        curr_player = playerO
+
+    label["text"] = curr_player+"'s turn"
 
 def new_game():
     pass
