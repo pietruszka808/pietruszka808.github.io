@@ -2,6 +2,10 @@ import tkinter
 
 def set_tile(row, column):
     global curr_player
+
+    if (game_over):
+        return
+
     
     if board[row][column]["text"] != "":
         return
@@ -32,6 +36,33 @@ def check_winter():
             game_over = True
             return
 
+
+    for column in range(3):
+        if (board[0][column]["text"] == board[1][column]["text"] == board[2][column]["text"]
+            and board[0][column]["text"] != ""):
+            label.config(text=board[0][column]["text"]+" is the winnter!", foreground=color_yellow)
+            for row in range(3):
+                board[row][column].config(foreground=color_yellow, background=color_light_gray)
+            game_over = True
+            return
+
+
+    if (board[0][0]["text"] == board[1][1]["text"] == board[2][2]["text"]
+        and board[0][0]["text"] != ""):
+        label.config(text=board[0][0]["text"]+" is the winnter!", foreground=color_yellow)
+        for i in range(3):
+            board[i][i].config(foreground=color_yellow, background=color_light_gray)
+        game_over = True
+        return          
+
+
+    if (board[0][2]["text"] == board[1][1]["text"] == board[2][0]["text"]
+        and board[0][2]["text"] != ""):
+        board[0][2].config(foreground=color_yellow, background=color_light_gray)
+        board[1][1].config(foreground=color_yellow, background=color_light_gray)
+        board[2][0].config(foreground=color_yellow, background=color_light_gray)
+        game_over = True
+        return
 
 def new_game():
     pass
