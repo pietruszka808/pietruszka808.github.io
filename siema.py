@@ -58,14 +58,31 @@ def check_winter():
 
     if (board[0][2]["text"] == board[1][1]["text"] == board[2][0]["text"]
         and board[0][2]["text"] != ""):
+        label.config(text=board[0][2]["text"]+" is the winnter!", foreground=color_yellow)
         board[0][2].config(foreground=color_yellow, background=color_light_gray)
         board[1][1].config(foreground=color_yellow, background=color_light_gray)
         board[2][0].config(foreground=color_yellow, background=color_light_gray)
         game_over = True
         return
 
+
+    if (turns == 9):
+        game_over = True
+        label.config(text="Tie!", foreground=color_yellow)
+
+
 def new_game():
-    pass
+    global turns, game_over
+
+    turns = 0
+    game_over = False
+
+    label.config(text=curr_player+"'s turn", foreground="white")
+
+    for row in range(3):
+        for column in range(3):
+            board[row][column].config(text="", foreground=color_blue, background=color_gray)
+
 
 playerX = "X"
 playerO = "O"
