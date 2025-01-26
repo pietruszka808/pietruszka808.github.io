@@ -1,3 +1,3 @@
 ## Elo
 
-Moja pierwsz gra w pythonie
+Moję pierwsze gry w pythonie
