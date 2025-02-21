@@ -1,3 +1,3 @@
 ## Elo
 
-Moję pierwsze gry w pythonie
+Moje pierwsze programy
