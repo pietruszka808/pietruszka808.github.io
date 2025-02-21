@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, redirect, url_for
 
 app= Flask(__name__)
 
@@ -9,8 +9,11 @@ def home():
 
 @app.route("/<zmienna>")
 def text(zmienna):
-    return "test"
+    return f"test {zmienna}"
 
+@app.route("/home")
+def homee():
+    return redirect(url_for("home"))
 
 
 if __name__ == "__main__":
