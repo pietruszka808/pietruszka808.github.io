@@ -1,13 +1,13 @@
-from flask import Flask, redirect, url_for
+from flask import Flask, redirect, url_for, render_template
 
-app= Flask(__name__)
+app= Flask(__name__, static_url_path='', static_folder='', template_folder='')
 
 
 @app.route("/")
 def home():
-    return "<h1>test w h1</h1>"
+    return render_template("xdxd.html")
 
-@app.route("/<zmienna>")
+@app.route("/test/<zmienna>")
 def text(zmienna):
     return f"test {zmienna}"
 
@@ -18,5 +18,3 @@ def homee():
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-
