@@ -12,6 +12,7 @@ let parsedPickaxeCost = parseFloat(pickaxeCost.innerHTML);
 let pickaxeLevel = document.querySelector(".pickaxe-level")
 let pickaxeIncrease = document.querySelector(".pickaxe-increase")
 let parsedpickaxeIncrease = parseFloat(pickaxeIncrease.innerHTML)
+let parsedPickaxeIncrease = 0.0
 
 let gpc = 1;
 
