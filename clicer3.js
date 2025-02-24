@@ -13,6 +13,11 @@ let pickaxeLevel = document.querySelector(".pickaxe-level")
 let pickaxeIncrease = document.querySelector(".pickaxe-increase")
 let parsedPickaxeIncrease = parseFloat(pickaxeIncrease.innerHTML)
 
+let minerCost = document.querySelector('.miner-cost');
+let parsedMinerCost = parseFloat(minerCost.innerHTML);
+let minerLevel = document.querySelector(".miner-level")
+let minerIncrease = document.querySelector(".miner-increase")
+let parsedMinerIncrease = parseFloat(minerIncrease.innerHTML)
 
 let gpc = 1;
 
@@ -49,6 +54,21 @@ function buyPickaxe() {
 
     parsedPickaxeCost *= 1.18;
     pickaxeCost.innerHTML = Math.round(parsedPickaxeCost)
+  }
+}
+
+function buyMiner() {
+  if (parsedGem >= parsedMinerCost) {   
+    gem.innerHTML = Math.round(parsedGem -= parsedMinerCost);
+
+    minerLevel.innerHTML ++
+
+    parsedMinerIncrease = parseFloat((parsedMinerIncrease * 1.03).toFixed(2))
+    minerIncrease.innerHTML = parsedMinerIncrease
+    gps += parsedMinerIncrease
+
+    parsedMinerCost *= 1.18;
+    minerCost.innerHTML = Math.round(parsedMinerCost)
   }
 }
 
