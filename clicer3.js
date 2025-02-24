@@ -16,6 +16,8 @@ let parsedPickaxeIncrease = parseFloat(pickaxeIncrease.innerHTML)
 
 let gpc = 1;
 
+let gps = 0;
+
 function incrementGem() {
     gem.innerHTML = Math.round(parsedGem += gpc);
 }
@@ -43,9 +45,14 @@ function buyPickaxe() {
 
     parsedPickaxeIncrease = parseFloat((parsedPickaxeIncrease * 1.03).toFixed(2))
     pickaxeIncrease.innerHTML = parsedPickaxeIncrease
-    gpc += parsedPickaxeIncrease
+    gps += parsedPickaxeIncrease
 
     parsedPickaxeCost *= 1.18;
     pickaxeCost.innerHTML = Math.round(parsedPickaxeCost)
   }
 }
+
+setInterval(() => {
+  parsedGem += gps / 10
+  gem.innerHTML = Math.round(parsedGem)
+}, 100)
