@@ -6,7 +6,8 @@ body {
   padding: 0;
   background-color: #2c2c2c;
   color: white;
-  user-select: none;
+  text-decoration: none;
+  position: relative;
 }
 
 .main {
@@ -90,4 +91,24 @@ body {
 
 .upgrade:hover .next-level-info {
     display: block;
+}
+
+.statistics {
+    position: absolute;
+    bottom: 0;
+    width: 450px;
+    padding: 30px;
+    border: 2px white solid;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.texts {
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 22px;
 }

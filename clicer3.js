@@ -19,6 +19,9 @@ let minerLevel = document.querySelector(".miner-level")
 let minerIncrease = document.querySelector(".miner-increase")
 let parsedMinerIncrease = parseFloat(minerIncrease.innerHTML)
 
+let gpcText = document.getElementById("gpc-text")
+let gpsText = document.getElementById("gps-text")
+
 let gpc = 1;
 
 let gps = 0;
@@ -75,4 +78,6 @@ function buyMiner() {
 setInterval(() => {
   parsedGem += gps / 10
   gem.innerHTML = Math.round(parsedGem)
+  gpcText.innerHTML = Math.round(gpc)
+  gpsText.innerHTML = Math.round(gps)
 }, 100)
