@@ -26,8 +26,14 @@ let gpc = 1;
 
 let gps = 0;
 
-function incrementGem() {
+function incrementGem(event) {
     gem.innerHTML = Math.round(parsedGem += gpc);
+
+    const x = event.offSetX
+    const y = event.offSetY
+
+    const div = document.createElement('div')
+    div.innerHTML = ''
 }
 
 function buyClicker() {
