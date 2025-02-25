@@ -18,10 +18,17 @@ body {
     gap: 200px;
 }
 
-.left h3 {
+.left {
     text-align: center;
     font-size: 30px;
     margin-bottom: 50px;
+}
+
+.gem-cost {
+    font-size: 32px;
+    color: rgb(202, 115, 243);
+    font-weight: 600;
+    text-shadow: 2px 2px 3px rgb(120, 120, 120);
 }
 
 .gem-image {
