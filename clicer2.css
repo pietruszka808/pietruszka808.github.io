@@ -82,6 +82,10 @@ body {
     width: 55px;
 }
 
+.gem-img-container {
+    position: relative;
+}
+
 .gem-img {
     width: 28px;
     height: 25px;

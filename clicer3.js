@@ -22,6 +22,8 @@ let parsedMinerIncrease = parseFloat(minerIncrease.innerHTML)
 let gpcText = document.getElementById("gpc-text")
 let gpsText = document.getElementById("gps-text")
 
+let gemImgContainer = document.querySelector(".gem-img-container")
+
 let gpc = 1;
 
 let gps = 0;
@@ -33,7 +35,12 @@ function incrementGem(event) {
     const y = event.offSetY
 
     const div = document.createElement('div')
-    div.innerHTML = ''
+    div.innerHTML = `+${Math.round(gpc)}`
+    div.style.cssText = `color white; position: absolute; top: ${y}px, left: ${x}px; font-size: 15px; pointer-events: none;`
+    gemImgContainer.appendChild(div)
+
+    div.classList.add('fade-up')
+
 }
 
 function buyClicker() {
