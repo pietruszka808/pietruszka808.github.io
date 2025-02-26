@@ -28,6 +28,39 @@ let gpc = 1;
 
 let gps = 0;
 
+const upgrades = [
+  {
+    name: 'clicker',
+    cost: document.querySelector('.clicker-cost'),
+    parsedCost: parseFloat(document.querySelector('.clicker-cost').innerHTML),
+    increase: document.querySelector(".clicker-increase"),
+    parsedIncrease: parseFloat(document.querySelector(".clicker-increase").innerHTML),
+    level: document.querySelector(".clicker-level"),
+    gemMultiplier: 1.025,
+    costMultiplier: 1.12,  
+  },
+  {
+    name: 'pickaxe',
+    cost: document.querySelector('.pickaxe-cost'),
+    parsedCost: parseFloat(document.querySelector('.pickaxe-cost').innerHTML),
+    increase: document.querySelector(".pickaxe-increase"),
+    parsedIncrease: parseFloat(document.querySelector(".pickaxe-increase").innerHTML),
+    level: document.querySelector(".pickaxe-level"),
+    gemMultiplier: 1.025,
+    costMultiplier: 1.12,  
+  },
+  {
+    name: 'miner',
+    cost: document.querySelector('.miner-cost'),
+    parsedCost: parseFloat(document.querySelector('.miner-cost').innerHTML),
+    increase: document.querySelector(".miner-increase"),
+    parsedIncrease: parseFloat(document.querySelector(".miner-increase").innerHTML),
+    level: document.querySelector(".miner-level"),
+    gemMultiplier: 1.025,
+    costMultiplier: 1.12,  
+  },
+]
+
 function incrementGem(event) {
     gem.innerHTML = Math.round(parsedGem += gpc);
 
@@ -36,11 +69,41 @@ function incrementGem(event) {
 
     const div = document.createElement('div')
     div.innerHTML = `+${Math.round(gpc)}`
-    div.style.cssText = `color red; position: absolute; top: ${y}px; left: ${x}px; font-size: 15px; pointer-events: none;`
+    div.style.cssText = `color white; position: absolute; top: ${y}px; left: ${x}px; font-size: 15px; pointer-events: none;`
     gemImgContainer.appendChild(div)
 
     div.classList.add('fade-up')
 
+    timeout(div)
+}
+
+const timeout = (div) => {
+  setTimeout(() => {
+    div.remove()
+  }, 800)
+}
+
+function buyUpgrade(upgrade) {
+  const mu = upgrades.find((u) => {
+    if (u.name === upgrade) return u
+  })
+
+  if (parsedGem >= mu.parsedCost) {
+    gem.innerHTML = Math.round(parsedGem -= mu.parsedCost);
+
+    mu.level.innerHTML ++
+
+    mu.parsedIncrease = parseFloat((mu.parsedIncrease * mu.gemMultiplier).toFixed(2))
+    mu.increase.innerHTML = mu.parsedIncrease
+    gpc += mu.parsedIncrease
+
+    mu.parsedCost *= mu.costMultiplier;
+    mu.cost.innerHTML = Math.round(mu.parsedCost)
+
+    if (mu.name === 'clicker') {
+      gpc += mu.parsedIncrease
+    }
+  }
 }
 
 function buyClicker() {
@@ -55,6 +118,8 @@ function buyClicker() {
 
       parsedClickerCost *= 1.18;
       clickerCost.innerHTML = Math.round(parsedClickerCost)
+
+
     }
 }
 
