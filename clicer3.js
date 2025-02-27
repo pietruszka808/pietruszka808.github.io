@@ -99,6 +99,23 @@ function buyUpgrade(upgrade) {
   }
 }
 
+function save () {
+  localStorage.clear()
+
+  upgrades.map((upgrade) => {
+
+    const obj = JSON.stringify({
+      parsedLevel: parseFloat(upgrade.level.innerHTML),
+      parsedCost: upgrade.parsedCost,
+      parsedIncrease: upgrade.parsedIncrease
+    })
+
+  })
+}
+
+function load () {
+
+}
 
 setInterval(() => {
   parsedGem += gps / 10
