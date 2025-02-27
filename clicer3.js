@@ -1,24 +1,6 @@
 let gem = document.querySelector('.gem-cost');
 let parsedGem = parseFloat(gem.innerHTML)
 
-let clickerCost = document.querySelector('.clicker-cost');
-let parsedClickerCost = parseFloat(clickerCost.innerHTML);
-let clickerLevel = document.querySelector(".clicker-level")
-let clickerIncrease = document.querySelector(".clicker-increase")
-let parsedClickerIncrease = parseFloat(clickerIncrease.innerHTML)
-
-let pickaxeCost = document.querySelector('.pickaxe-cost');
-let parsedPickaxeCost = parseFloat(pickaxeCost.innerHTML);
-let pickaxeLevel = document.querySelector(".pickaxe-level")
-let pickaxeIncrease = document.querySelector(".pickaxe-increase")
-let parsedPickaxeIncrease = parseFloat(pickaxeIncrease.innerHTML)
-
-let minerCost = document.querySelector('.miner-cost');
-let parsedMinerCost = parseFloat(minerCost.innerHTML);
-let minerLevel = document.querySelector(".miner-level")
-let minerIncrease = document.querySelector(".miner-increase")
-let parsedMinerIncrease = parseFloat(minerIncrease.innerHTML)
-
 let gpcText = document.getElementById("gpc-text")
 let gpsText = document.getElementById("gps-text")
 
@@ -46,8 +28,8 @@ const upgrades = [
     increase: document.querySelector(".pickaxe-increase"),
     parsedIncrease: parseFloat(document.querySelector(".pickaxe-increase").innerHTML),
     level: document.querySelector(".pickaxe-level"),
-    gemMultiplier: 1.025,
-    costMultiplier: 1.12,  
+    gemMultiplier: 1.03,
+    costMultiplier: 1.115,  
   },
   {
     name: 'miner',
@@ -56,8 +38,18 @@ const upgrades = [
     increase: document.querySelector(".miner-increase"),
     parsedIncrease: parseFloat(document.querySelector(".miner-increase").innerHTML),
     level: document.querySelector(".miner-level"),
-    gemMultiplier: 1.025,
-    costMultiplier: 1.12,  
+    gemMultiplier: 1.035,
+    costMultiplier: 1.11,  
+  },
+  {
+    name: 'factory',
+    cost: document.querySelector('.factory-cost'),
+    parsedCost: parseFloat(document.querySelector('.factory-cost').innerHTML),
+    increase: document.querySelector(".factory-increase"),
+    parsedIncrease: parseFloat(document.querySelector(".factory-increase").innerHTML),
+    level: document.querySelector(".factory-level"),
+    gemMultiplier: 1.04,
+    costMultiplier: 1.10,  
   },
 ]
 
@@ -95,63 +87,18 @@ function buyUpgrade(upgrade) {
 
     mu.parsedIncrease = parseFloat((mu.parsedIncrease * mu.gemMultiplier).toFixed(2))
     mu.increase.innerHTML = mu.parsedIncrease
-    gpc += mu.parsedIncrease
 
     mu.parsedCost *= mu.costMultiplier;
     mu.cost.innerHTML = Math.round(mu.parsedCost)
 
     if (mu.name === 'clicker') {
       gpc += mu.parsedIncrease
+    } else {
+      gps += mu.parsedIncrease
     }
   }
 }
 
-function buyClicker() {
-    if (parsedGem >= parsedClickerCost) {   
-      gem.innerHTML = Math.round(parsedGem -= parsedClickerCost);
-
-      clickerLevel.innerHTML ++
-
-      parsedClickerIncrease = parseFloat((parsedClickerIncrease * 1.03).toFixed(2))
-      clickerIncrease.innerHTML = parsedClickerIncrease
-      gpc += parsedClickerIncrease
-
-      parsedClickerCost *= 1.18;
-      clickerCost.innerHTML = Math.round(parsedClickerCost)
-
-
-    }
-}
-
-function buyPickaxe() {
-  if (parsedGem >= parsedPickaxeCost) {   
-    gem.innerHTML = Math.round(parsedGem -= parsedPickaxeCost);
-
-    pickaxeLevel.innerHTML ++
-
-    parsedPickaxeIncrease = parseFloat((parsedPickaxeIncrease * 1.03).toFixed(2))
-    pickaxeIncrease.innerHTML = parsedPickaxeIncrease
-    gps += parsedPickaxeIncrease
-
-    parsedPickaxeCost *= 1.18;
-    pickaxeCost.innerHTML = Math.round(parsedPickaxeCost)
-  }
-}
-
-function buyMiner() {
-  if (parsedGem >= parsedMinerCost) {   
-    gem.innerHTML = Math.round(parsedGem -= parsedMinerCost);
-
-    minerLevel.innerHTML ++
-
-    parsedMinerIncrease = parseFloat((parsedMinerIncrease * 1.03).toFixed(2))
-    minerIncrease.innerHTML = parsedMinerIncrease
-    gps += parsedMinerIncrease
-
-    parsedMinerCost *= 1.18;
-    minerCost.innerHTML = Math.round(parsedMinerCost)
-  }
-}
 
 setInterval(() => {
   parsedGem += gps / 10
