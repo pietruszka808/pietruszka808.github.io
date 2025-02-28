@@ -110,11 +110,32 @@ function save () {
       parsedIncrease: upgrade.parsedIncrease
     })
 
+    localStorage.setItem(upgrade.name, obj)
+
   })
+
+  localStorage.setItem('gpc', JSON.stringify(gpc))
+  localStorage.setItem('gps', JSON.stringify(gps))
+  localStorage.setItem('gem', JSON.stringify(parsedGem))
 }
 
 function load () {
+  upgrades.map((upgrade) => {
+    const savedValutes = JSON.parse(localStorage.getItem(upgrade.name))
 
+    upgrade.parsedCost = savedValutes.parsedCost
+    upgrade.parsedIncrease = savedValutes.parsedIncrease
+
+    upgrade.level.innerHTML = savedValutes.parsedLevel
+    upgrade.cost.innerHTML = Math.round(upgrade.parsedCost)
+    upgrade.increase.innerHTML = upgrade.parsedIncrease
+  })
+
+  gpc = JSON.parse(localStorage.getItem('gpc'))
+  gps = JSON.parse(localStorage.getItem('gps'))
+  parsedGem = JSON.parse(localStorage.getItem('gem'))
+
+  gem.innerHTML = Math.round(parsedGem)
 }
 
 setInterval(() => {
