@@ -1,3 +1,5 @@
+import { defaultValues } from "./clicer3 v2.js";
+
 let gem = document.querySelector('.gem-cost');
 let parsedGem = parseFloat(gem.innerHTML)
 
@@ -57,10 +59,16 @@ function createUpgrades() {
   const upgradesContainer = document.getElementById('upgrades-container')
   const template = document.getElementById('upgrades-template').textContent
 
-  Array.forEach((value) => {
-    
+  defaultValues.forEach((value) => {
+    let html = template;
+
+    Object.keys(value).forEach((key) => {
+      const regex = new
+    })
   })
 }
+
+createUpgrades()
 
 function incrementGem(event) {
     gem.innerHTML = Math.round(parsedGem += gpc);
@@ -153,3 +161,8 @@ setInterval(() => {
   gpcText.innerHTML = Math.round(gpc)
   gpsText.innerHTML = Math.round(gps)
 }, 100)
+
+window.incrementGem = incrementGem
+window.buyUpgrade = buyUpgrade
+window.save = save
+window.load = load
