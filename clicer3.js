@@ -53,6 +53,15 @@ const upgrades = [
   },
 ]
 
+function createUpgrades() {
+  const upgradesContainer = document.getElementById('upgrades-container')
+  const template = document.getElementById('upgrades-template').textContent
+
+  Array.forEach((value) => {
+    
+  })
+}
+
 function incrementGem(event) {
     gem.innerHTML = Math.round(parsedGem += gpc);
 
