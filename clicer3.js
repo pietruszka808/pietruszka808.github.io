@@ -57,7 +57,7 @@ const upgrades = [
 
 function createUpgrades() {
   const upgradesContainer = document.getElementById('upgrades-container')
-  const template = document.getElementById('upgrades-template').textContent
+  const template = document.getElementById('upgrade-template').textContent
 
   defaultValues.forEach((obj) => {
     let html = template;
