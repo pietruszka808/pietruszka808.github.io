@@ -64,7 +64,7 @@ function createUpgrades() {
 
     Object.keys(obj).forEach((key) => {
       const regex = new RegExp(`{{${key}}}`, 'g');
-      html = html.replace(regex, value[key])
+      html = html.replace(regex, obj[key])
     });
 
     upgradesContainer.innerHTML += html

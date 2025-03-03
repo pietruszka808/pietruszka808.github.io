@@ -5,7 +5,7 @@ app= Flask(__name__, static_url_path='', static_folder='', template_folder='')
 
 @app.route("/")
 def home():
-    return render_template("xdxd.html")
+    return render_template("clicer.html")
 
 @app.route("/test/<zmienna>")
 def text(zmienna):
@@ -17,4 +17,4 @@ def homee():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=9000)

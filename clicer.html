@@ -22,40 +22,11 @@
               
             </div>
 
-            <script id="upgrade-template" type="text/template">
-              <div class="upgrade" onclick="buyUpgrade('clicker')">
-                <div class="left-section">
-                  <img 
-                  src="clicker-white.png" 
-                  alt="" 
-                  class="upgrade-img">
-                </div>
-                <div class="mid-section">
-                  <h4>Clicker</h4>
-                  <div class="cost-info">
-                    <p class="cost-text"><span class="clicker-cost">10</span></p>
-                    <img src="gem (1).png" alt="" class="gem-img">
-                  </div>
-                </div>
-                <div class="right-section">Level <span class="clicker-level">0</span></div>
-                 <div class="next-level-info">
-                    <p>
-                      +<span class="clicker-increase">1</span> gems <br />  per click
-                    </p>
-                 </div>
-              </div> 
-            </script>
-
-            <div class="right" id="upgrades-container">
-
-            </div>
-
-            <div class="right">
-              
+            <script id="upgrades-template" type="text/template">
               <div class="upgrade" onclick="buyUpgrade('{{name}}')">
                 <div class="left-section">
                   <img 
-                  src="{{image}}" 
+                  src="{{image}}"
                   alt="" 
                   class="upgrade-img">
                 </div>
@@ -70,6 +41,35 @@
                  <div class="next-level-info">
                     <p>
                       +<span class="{{name}}-increase">{{-increase}}</span> gems <br />  per click
+                    </p>
+                 </div>
+              </div> 
+            </script>
+
+            <div class="right" id="upgrades-container">
+
+            </div>
+
+            <div class="right">
+              
+              <div class="upgrade" onclick="buyUpgrade('clicker')">
+                <div class="left-section">
+                  <img
+                  src="clicker-white.png"
+                  alt="" 
+                  class="upgrade-img">
+                </div>
+                <div class="mid-section">
+                  <h4>Clicker</h4>
+                  <div class="cost-info">
+                    <p class="cost-text"><span class="clicker-cost">10</span></p>
+                    <img src="gem (1).png" alt="" class="gem-img">
+                  </div>
+                </div>
+                <div class="right-section">Level <span class="clicker-level">0</span></div>
+                 <div class="next-level-info">
+                    <p>
+                      +<span class="clicker-increase">1</span> gems <br />  per click
                     </p>
                  </div>
               </div> 
