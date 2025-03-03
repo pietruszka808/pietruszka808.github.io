@@ -59,12 +59,15 @@ function createUpgrades() {
   const upgradesContainer = document.getElementById('upgrades-container')
   const template = document.getElementById('upgrades-template').textContent
 
-  defaultValues.forEach((value) => {
+  defaultValues.forEach((obj) => {
     let html = template;
 
-    Object.keys(value).forEach((key) => {
-      const regex = new
-    })
+    Object.keys(obj).forEach((key) => {
+      const regex = new RegExp(`{{${key}}}`, 'g');
+      html = html.replace(regex, value[key])
+    });
+
+    upgradesContainer.innerHTML += html
   })
 }
 
