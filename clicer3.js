@@ -12,9 +12,13 @@ let gpc = 1;
 
 let gps = 0;
 
-
+const bgm = new Audio('/bgm.mp3')
+bgm.volume = 0.1
 
 function incrementGem(event) {
+    const clickingSound = new Audio('/click.wav')
+    clickingSound.play()
+    
     gem.innerHTML = Math.round(parsedGem += gpc);
 
     const x = event.offsetX
@@ -42,8 +46,11 @@ function buyUpgrade(upgrade) {
   })
 
   if (parsedGem >= mu.parsedCost) {
+    const upgradeSound = new Audio('/upgrade.mp3')
+    upgradeSound.volume = 0.3
+    upgradeSound.play
     gem.innerHTML = Math.round(parsedGem -= mu.parsedCost);
-
+    
     mu.level.innerHTML ++
 
     mu.parsedIncrease = parseFloat((mu.parsedIncrease * mu.gemMultiplier).toFixed(2))
@@ -104,6 +111,7 @@ setInterval(() => {
   gem.innerHTML = Math.round(parsedGem)
   gpcText.innerHTML = Math.round(gpc)
   gpsText.innerHTML = Math.round(gps)
+  bgm.play()
 }, 100)
 
 window.incrementGem = incrementGem
