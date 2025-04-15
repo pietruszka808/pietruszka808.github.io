@@ -26,6 +26,23 @@ function createUpgrades() {
     increase: document.querySelector(".clicker-increase"),
     parsedIncrease: parseFloat(document.querySelector(".clicker-increase").innerHTML),
     level: document.querySelector(".clicker-level"),
+    powerUps:[
+      {
+        name: "2x clicker",
+        description: "double your clicking power",
+        multiplier: 2,
+      },
+      {
+        name: "3x clicker",
+        description: "triple your clicking power",
+        multiplier: 3,
+      },
+      {
+        name: "2x clicker",
+        description: "double your clicking power",
+        multiplier: 2,
+      },
+    ],
     gemMultiplier: 1.025,
     costMultiplier: 1.12,  
   },
@@ -36,6 +53,23 @@ function createUpgrades() {
     increase: document.querySelector(".pickaxe-increase"),
     parsedIncrease: parseFloat(document.querySelector(".pickaxe-increase").innerHTML),
     level: document.querySelector(".pickaxe-level"),
+    powerUps:[
+      {
+        name: "2x pickaxe",
+        description: "double your pickaxe efficiency",
+        multiplier: 2,
+      },
+      {
+        name: "3x pickaxe",
+        description: "triple your pickaxe efficiency",
+        multiplier: 3,
+      },
+      {
+        name: "2x pickaxe",
+        description: "double your pickaxe efficiency",
+        multiplier: 2,
+      },
+    ],
     gemMultiplier: 1.03,
     costMultiplier: 1.115,  
   },
@@ -60,4 +94,6 @@ function createUpgrades() {
     costMultiplier: 1.10,  
   },
 ]
+
+export const powerUpIntervals = [10, 20, 30, 50, 70, 100, 150, 200, 250, 300]
 

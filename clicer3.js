@@ -1,4 +1,4 @@
-import { upgrades } from "./upgrades-clicer3.js";
+import { powerUpIntervals, upgrades } from "./upgrades-clicer3.js";
 
 let gem = document.querySelector('.gem-cost');
 let parsedGem = parseFloat(gem.innerHTML)
@@ -45,14 +45,27 @@ function buyUpgrade(upgrade) {
     if (u.name === upgrade) return u
   })
 
+  const upgradeDiv = document.getElementById(`${mu.name}-upgrade`)
+  const nextlevelDiv = document.getElementById(`${mu.name}-next-level`)
+  const nextlevelP = document.getElementById(`${mu.name}-next-p`)
+
   if (parsedGem >= mu.parsedCost) {
     const upgradeSound = new Audio('/upgrade.mp3')
-    upgradeSound.volume = 0.3
+    upgradeSound.volume = 0.1
     upgradeSound.play
+
     gem.innerHTML = Math.round(parsedGem -= mu.parsedCost);
-    
+
     mu.level.innerHTML ++
 
+    let index = powerUpIntervals.indexOf(parseFloat(mu.level.innerHTML))
+
+    if ( index !== -1 ) {
+      upgradeDiv.style.cssText = `border-color: orange`;
+      nextlevelDiv.style.cssText = `background-color: #CC4500; font-weight: bold`
+      nextlevelP.innerText = mu.powerUps[index].description
+    }
+    
     mu.parsedIncrease = parseFloat((mu.parsedIncrease * mu.gemMultiplier).toFixed(2))
     mu.increase.innerHTML = mu.parsedIncrease
 
