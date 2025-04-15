@@ -64,6 +64,8 @@ function buyUpgrade(upgrade) {
       upgradeDiv.style.cssText = `border-color: orange`;
       nextlevelDiv.style.cssText = `background-color: #CC4500; font-weight: bold`
       nextlevelP.innerText = mu.powerUps[index].description
+
+      mu.cost.innerHTML = Math.round(mu.parsedCost)
     }
     
     mu.parsedIncrease = parseFloat((mu.parsedIncrease * mu.gemMultiplier).toFixed(2))
