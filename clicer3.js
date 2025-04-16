@@ -6,7 +6,10 @@ let parsedGem = parseFloat(gem.innerHTML)
 let gpcText = document.getElementById("gpc-text")
 let gpsText = document.getElementById("gps-text")
 
-let gemImgContainer = document.querySelector(".gem-img-container")
+let gemImgContainer = document.querySelector('.gem-img-container')
+
+let upgradesNavButton = document.getElementById('upgrades-nav-button')
+let skillsNavButton = document.getElementById('skills-nav-button')
 
 let gpc = 1;
 
@@ -147,6 +150,22 @@ setInterval(() => {
   gpsText.innerHTML = Math.round(gps)
   bgm.play()
 }, 100)
+
+skillsNavButton.addEventListener("click", function(){
+  const upgradeContainers = document.querySelectorAll(".upgrade")
+
+  upgradeContainers.forEach((container) => {
+    container.style.display = "none"
+  })
+})
+
+upgradesNavButton.addEventListener("click", function(){
+  const upgradeContainers = document.querySelectorAll(".upgrade")
+
+  upgradeContainers.forEach((container) => {
+    container.style.display = "flex"
+  })
+})
 
 window.incrementGem = incrementGem
 window.buyUpgrade = buyUpgrade
