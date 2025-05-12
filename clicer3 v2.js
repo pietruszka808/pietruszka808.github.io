@@ -17,7 +17,7 @@ export const defaultSkillValues = [
   {
    name: "Lucky Day",
    description: "Gain 600 x GPS worth of gems instantly",
-   image: "/sklill1.png",
+   image: "/skill1.png",
    cd: 900,
    cost: 480000,
   }

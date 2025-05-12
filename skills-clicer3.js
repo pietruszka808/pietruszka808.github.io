@@ -15,3 +15,5 @@ function createUpgrades() {
       upgradesContainer.innerHTML += html
     })
   }
+
+  createUpgrades()
