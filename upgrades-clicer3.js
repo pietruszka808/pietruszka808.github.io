@@ -1,10 +1,10 @@
-import { defaultValues } from "./clicer3 v2.js";
+import { defaultUpgradeValues } from "./clicer3 v2.js";
 
 function createUpgrades() {
     const upgradesContainer = document.getElementById('upgrades-container')
     const template = document.getElementById('upgrade-template').textContent
   
-    defaultValues.forEach((obj) => {
+    defaultUpgradeValues.forEach((obj) => {
       let html = template;
   
       Object.keys(obj).forEach((key) => {
