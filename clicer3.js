@@ -148,7 +148,24 @@ function load () {
 }
 
 function prestige () {
-  
+  upgrades.map((upgrade) => {
+    const mu = defaultUpgradeValues.find((u) => { if (upgrade.name === u.name) return u })
+
+      upgrade.parsedCost = mu.cost
+    upgrade.parsedIncrease = mu.increase
+
+    upgrade.level.innerHTML = 0
+    upgrade.cost.innerHTML = mu.cost
+    upgrade.increase.innerHTML = mu.increase 
+    
+    const upgradeDiv = document.getElementById(`${mu.name}-upgrade`)
+    const nextlevelDiv = document.getElementById(`${mu.name}-next-level`)
+    const nextlevelP = document.getElementById(`${mu.name}-next-p`)
+
+    upgradeDiv.style.cssText = `border-color: white`;
+    nextlevelDiv.style.cssText = `border-color: #5A5959; font-weight: normal`;
+    nextlevelP.innerHTML = `+${mu.increase} gems per click`
+  })
 }
 
 setInterval(() => {
