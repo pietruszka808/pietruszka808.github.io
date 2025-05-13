@@ -1,4 +1,5 @@
 import { powerUpIntervals, upgrades } from "./upgrades-clicer3.js";
+import { defaultUpgradeValues } from "./clicer3 v2.js";
 
 let gem = document.querySelector('.gem-cost');
 let parsedGem = parseFloat(gem.innerHTML)
@@ -10,6 +11,9 @@ let gemImgContainer = document.querySelector('.gem-img-container')
 
 let upgradesNavButton = document.getElementById('upgrades-nav-button')
 let skillsNavButton = document.getElementById('skills-nav-button')
+let artifactsNavButton = document.getElementById('artifacts-nav-button')
+
+let prestigeButton = document.querySelector(".prestige-button")
 
 let gpc = 1;
 
@@ -143,25 +147,34 @@ function load () {
   gem.innerHTML = Math.round(parsedGem)
 }
 
+function prestige () {
+  
+}
+
 setInterval(() => {
   parsedGem += gps / 10
   gem.innerHTML = Math.round(parsedGem)
   gpcText.innerHTML = Math.round(gpc)
   gpsText.innerHTML = Math.round(gps)
   bgm.play()
+
+  if (parsedGem >= 1_000_000) {
+    prestigeButton.style.display = "block"
+  } else {
+    prestigeButton.style.display = "none"
+  }
 }, 100)
 
-skillsNavButton.addEventListener("click", function(){
+skillsNavButton.addEventListener("click", function() {
   const upgradeContainers = document.querySelectorAll(".upgrade")
 
   upgradeContainers.forEach((container) => {
     if ( container.classList.contains('type-skill')) container.style.display = "flex"
-    else container.style.display = "none"
-    
+    else container.style.display = "none"    
   })
 })
 
-upgradesNavButton.addEventListener("click", function(){
+upgradesNavButton.addEventListener("click", function() {
   const upgradeContainers = document.querySelectorAll(".upgrade")
 
   upgradeContainers.forEach((container) => {
@@ -170,7 +183,17 @@ upgradesNavButton.addEventListener("click", function(){
   })
 })
 
+artifactsNavButton.addEventListener("click", function() {
+  const upgradeContainers = document.querySelectorAll(".upgrade")
+
+  upgradeContainers.forEach((container) => {
+    if ( container.classList.contains('type-artifact')) container.style.display = "flex"
+    else container.style.display = "none"
+  })
+})
+
 window.incrementGem = incrementGem
 window.buyUpgrade = buyUpgrade
 window.save = save
 window.load = load
+window.prestige = prestige
