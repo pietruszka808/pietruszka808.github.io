@@ -38,6 +38,11 @@ body {
     padding-top: 15px;
 }
 
+.right-navbar>div:hover {
+    opacity: 0.85;
+    cursor: pointer;
+}
+
 .right-navbar>:first-child {
     background: blue;
 }
@@ -80,10 +85,6 @@ body {
     transform: scale(1.02);
 }
 
-.upgrade:hover {
-    cursor: pointer;
-}
-
 .upgrade {
     display: flex;
     align-items: center;
@@ -95,6 +96,15 @@ body {
     border-radius: 5px;
     position: relative;
     margin-bottom: 20px;
+}
+
+.upgrade:hover {
+    opacity: 0.85;
+    cursor: pointer;
+}
+
+.type-skill {
+    display: none;
 }
 
 .mid-section h4 {
