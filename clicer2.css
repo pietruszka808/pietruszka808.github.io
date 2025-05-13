@@ -47,6 +47,10 @@ body {
     background: blue;
 }
 
+.right-navbar>:nth-child(2) {
+    background: rgb(109, 8, 149);
+}
+
 #upgrades-container {
     max-height: 400px;
     width: 500px;
@@ -104,6 +108,10 @@ body {
 }
 
 .type-skill {
+    display: none;
+}
+
+.type-artifact {
     display: none;
 }
 

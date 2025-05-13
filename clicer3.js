@@ -155,8 +155,9 @@ skillsNavButton.addEventListener("click", function(){
   const upgradeContainers = document.querySelectorAll(".upgrade")
 
   upgradeContainers.forEach((container) => {
-    if ( container.classList.contains('type-upgrade')) container.style.display = "none"
-    else if ( container.classList.contains('type-skill')) container.style.display = "flex"
+    if ( container.classList.contains('type-skill')) container.style.display = "flex"
+    else container.style.display = "none"
+    
   })
 })
 
@@ -165,7 +166,7 @@ upgradesNavButton.addEventListener("click", function(){
 
   upgradeContainers.forEach((container) => {
     if ( container.classList.contains('type-upgrade')) container.style.display = "flex"
-    else if ( container.classList.contains('type-skill')) container.style.display = "none"
+    else container.style.display = "none"
   })
 })
 

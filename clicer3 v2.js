@@ -24,3 +24,12 @@ export const defaultSkillValues = [
    type: "skill"
   }
 ]
+
+export const defaultArtifactValues = [
+  {
+    name: "Artifact 1",
+    description: "Permanently increase all games gained by x amount",
+    image: "",
+    type: "artifact"
+  }
+]
