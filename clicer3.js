@@ -54,6 +54,7 @@ function buyUpgrade(upgrade) {
     if (u.name === upgrade) return u
   })
 
+  mu.level = document.querySelector(`.${mu.name}-level`)
   const upgradeDiv = document.getElementById(`${mu.name}-upgrade`)
   const nextlevelDiv = document.getElementById(`${mu.name}-next-level`)
   const nextlevelP = document.getElementById(`${mu.name}-next-p`)
