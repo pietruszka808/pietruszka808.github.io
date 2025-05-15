@@ -15,6 +15,8 @@ let artifactsNavButton = document.getElementById('artifacts-nav-button')
 
 let prestigeButton = document.querySelector(".prestige-button")
 
+let relic = document.getElementById("relic")
+
 let gpc = 1;
 
 let gps = 0;
@@ -166,6 +168,13 @@ function prestige () {
     nextlevelDiv.style.cssText = `border-color: #5A5959; font-weight: normal`;
     nextlevelP.innerHTML = `+${mu.increase} gems per click`
   })
+
+  relic.innerHTML = Math.ceil(Math.sqrt(parsedGem - 999999) / 300)
+
+  gpc = 1
+  gps = 0
+  parsedGem = 0
+  gem.innerHTML = parsedGem
 }
 
 setInterval(() => {
